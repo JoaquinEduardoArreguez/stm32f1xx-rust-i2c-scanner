@@ -1,0 +1,24 @@
+[package]
+name = "rust-i2c-scanner"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level='z' # max optimizations
+lto = true #link-time-optimization for further size reduction
+
+[dependencies.stm32f1xx-hal]
+version = "0.9.0"
+features = ["stm32f100", "rt"]
+
+[dependencies]
+cortex-m = "0.7.6"
+cortex-m-rt = "0.7.1"
+nb = "1"
+embedded-hal = "0.2.7"
+# Panic behaviour, see https://crates.io/keywords/panic-impl for alternatives
+panic-halt = "0.2.0"
+panic-semihosting = "0.6.0"
+cortex-m-semihosting = "0.5.0"
